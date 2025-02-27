@@ -1,0 +1,123 @@
+@use "../base/variables" as *;
+
+.info {
+    margin: 0 10px;
+    width: 175px;
+    height: 63px;
+    background-color: rgba(217, 217, 217, .3);
+    border-radius: 5px;
+
+    @include breakpoint(lg) {
+        width: 132px;
+        height: 75px;
+    }
+
+    @include breakpoint(md) {
+        width: 175px;
+        height: 63px;
+    }
+
+    @include breakpoint(min) {
+        width: 132px;
+        height: 75px;
+    }
+
+    .loader {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        &__spinner {
+            height: 24px;
+            width: 24px;
+            animation: spin 2s infinite ease;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    }
+
+    &-container {
+        width: 100%;
+        height: 100%;
+        padding: 12px 0 0 10px;
+        display: flex;
+        flex-direction: column;
+        container-name: info;
+        container-type: inline-size;
+
+        @include breakpoint(lg) {
+            padding: 5px 10px;
+            justify-content: space-between;
+        }
+
+        @include breakpoint(md) {
+            padding: 12px 0 0 10px;
+            justify-content: normal;
+        }
+
+        @include breakpoint(min) {
+            padding: 5px 10px;
+            justify-content: space-between;
+        }
+
+        .used_companies {
+            display: flex;
+            align-items: center;
+            flex-direction: row;
+            flex-wrap: wrap;
+
+            &-title {
+                opacity: .4;
+                margin: 0 9px 0 0;
+                @include font(10, 400, $color-black);
+
+                @container info (width <= 150px) {
+                    font-size: 8px;
+                    margin: 0 15px 2px 0;
+                }
+            }
+
+            &-value {
+                @include font(14, 700, $color-black);
+            }
+        }
+
+        .company_limit {
+            margin: 2px 0 0 0;
+            display: flex;
+            align-items: center;
+            flex-direction: row;
+            flex-wrap: wrap;
+
+            @container info (width <= 150px) {
+                margin: 0;
+            }
+
+            &-title {
+                margin: 0 9px 0 17px;
+                @include font(10, 400, $color-black);
+                opacity: .4;
+
+                @container info (width <= 150px) {
+                    margin: 0 25px 2px 0;
+                    font-size: 8px;
+                }
+            }
+
+            &-value {
+                @include font(14, 700, $color-black);
+                color: $color-light-green
+            }
+        }
+    }
+}

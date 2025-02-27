@@ -1,0 +1,46 @@
+@use "../base/variables" as *;
+
+.footer {
+    background-color: $color-green;
+    height: 137px;
+
+    &__content {
+        padding: 25px 43px 0 60px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        position: relative;
+
+        @include breakpoint(md) {
+            padding: 25px 31px 0 30px;
+        }
+
+        @include breakpoint(sm) {
+            padding: 25px 19px 0 18px;
+        }
+
+        &__logo {
+            @include breakpoint(min) {
+                svg {
+                    width: 111px;
+                    position: absolute;
+                    top: 0;
+                }
+            }
+        }
+
+        &__text {
+            text-align: end;
+
+            .contacts {
+                @include font(14, 400, $color-white);
+                margin-bottom: 21px;
+            }
+
+            .copyright {
+                @include font(12, 400, $color-white);
+            }
+        }
+    }
+}

@@ -1,0 +1,193 @@
+@use "../base/variables" as *;
+
+.publication {
+    display: flex;
+    flex-direction: column;
+    padding: 19px 30px 35px;
+    width: 100%;
+    max-width: 641px;
+    min-width: 335px;
+    height: 694px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2);
+    container-type: inline-size;
+
+    @include breakpoint(lg) {
+        margin: 0 auto;
+    }
+
+    @include breakpoint(sm) {
+        padding: 19px;
+    }
+
+    &__header {
+        margin: 0 0 24px 0;
+        display: flex;
+        flex-direction: row;
+        justify-content: start;
+        gap: 10px;
+
+        @container (max-width: 470px) {
+            margin: 0 0 21px 0;
+        }
+
+        .issueDate {
+            @include font(16, 400, $color-gray);
+
+            @container (max-width: 470px) {
+                font-size: 14px;
+            }
+        }
+
+        .sourceName {
+            @include font(16, 400, $color-gray);
+            text-decoration: underline;
+
+            @container (max-width: 470px) {
+                font-size: 14px;
+            }
+        }
+    }
+
+    &__body {
+        display: flex;
+        flex-direction: column;
+
+        &__title {
+            @include font(26, 500, $color-black);
+
+            @container (max-width: 470px) {
+                font-size: 22px;
+            }
+
+            @include breakpoint(min) {
+                font-size: 19px;
+            }
+        }
+
+        &__tags {
+            margin: 14px 0 0 0;
+            display: flex;
+            flex-direction: row;
+            gap: 2px;
+            flex-wrap: wrap;
+
+            @include breakpoint(min) {
+                margin: 20px 0 0 0;
+            }
+
+            .single-tag {
+                @include font(12, 400, $color-black);
+                background-color: $color-yellow;
+                padding: 4px 13px;
+                border-radius: 5px;
+
+                @include breakpoint(min) {
+                    font-size: 10px;
+                    padding: 4px 12px;
+                }
+            }
+        }
+
+        &__image-wrapper {
+            display: inline-flex;
+            margin: 17px 0 0 0;
+            width: 100%;
+            height: 158px;
+            border-radius: 10px;
+            overflow: hidden;
+
+            @include breakpoint(min) {
+                margin: 13px 0 0 0;
+            }
+
+            .publication-image {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+
+        &__text-wrapper {
+            position: relative;
+            display: flex;
+            width: 100%;
+            height: 240px;
+            overflow: hidden;
+
+            @include breakpoint(min) {
+                height: 255px;
+            }
+
+            &::after {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                height: 40px;
+                background: linear-gradient(to bottom, rgba(2, 148, 145, 0), $color-white);
+                pointer-events: none;
+            }
+
+
+            .text {
+                display: block;
+                margin: 20px 0 0 0;
+                white-space: pre-wrap;
+                word-wrap: break-word;
+                font-family: $Inter;
+                @include font(16, 400, $color-black);
+                opacity: .5;
+                letter-spacing: .02em;
+
+                @include breakpoint(min) {
+                    margin: 18px 0 0 0;
+                    font-size: 12px;
+                    letter-spacing: .01em;
+                }
+            }
+        }
+
+    }
+
+    &__footer {
+        display: flex;
+        flex-direction: row;
+        margin: auto 0 0 0;
+        justify-content: space-between;
+        align-items: end;
+
+        .source-btn {
+            width: 223px;
+            height: 47px;
+            border: none;
+            border-radius: 5px;
+            background-color: $color-cyan;
+            font-family: $Inter;
+            @include font(16, 400, $color-black);
+            cursor: pointer;
+
+            @include breakpoint(min) {
+                width: 195px;
+                height: 41px;
+                font-size: 14px;
+            }
+
+            &:hover {
+                filter: brightness(.9);
+            }
+        }
+
+        .word-count {
+            @include font(16, 400, $color-gray);
+            letter-spacing: .02em;
+
+            @include breakpoint(min) {
+                font-size: 14px;
+                letter-spacing: 0;
+            }
+        }
+
+    }
+}

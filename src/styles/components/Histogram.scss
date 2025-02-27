@@ -1,0 +1,168 @@
+@use "../base/variables" as *;
+
+.histogram {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    &__content {
+        display: flex;
+        flex-direction: row;
+        width: calc(100% - 68px);
+        height: 158px;
+        border: 2px solid $color-green;
+        border-radius: 10px;
+
+        @include breakpoint(min) {
+            flex-direction: column;
+            height: 140px;
+            box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2);
+        }
+
+        &__header {
+            padding: 17px 27px 17px 28px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 133px;
+            background-color: $color-green;
+            border-radius: 7px 0 0 7px;
+            @include font(20, 500, $color-white);
+            letter-spacing: .02em;
+
+            @include breakpoint(min) {
+                flex-direction: row;
+                width: 100%;
+                padding: 23px 16px;
+                border-radius: 7px 7px 0 0;
+                font-size: 18px;
+            }
+
+            .header__date {
+
+                @include breakpoint(min) {
+                    margin: 0 49px 0 0;
+                }
+            }
+        }
+
+        &__body {
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+            overflow: hidden;
+
+            .swiper-slide {
+                width: 139px;
+                padding: 17px 0;
+
+                @include breakpoint(min) {
+                    width: 100%;
+                    padding: 17px 35px 17px 10px;
+                }
+
+                .card {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    align-items: center;
+                    height: 100%;
+                    min-width: 137px;
+                    padding: 1px 18px;
+                    @include font(18, 400, $color-black);
+                    border-right: 2px solid rgba(148, 148, 148, .4);
+
+                    @include breakpoint(min) {
+                        flex-direction: row;
+                        border-right: none;
+                        padding: 0;
+                    }
+
+                    &__date {
+                        @include breakpoint(min) {
+                            margin-right: 25px;
+                        }
+                    }
+                }
+            }
+
+            .loader {
+                width: 100%;
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+
+                &__spinner {
+                    margin: 0 0 11px 0;
+                    animation: spin 2s infinite ease;
+
+                    @include breakpoint(min) {
+                        margin: 11px 0 0 0;
+                    }
+                }
+
+                &__description {
+                    @include font(18, 400);
+
+                    @include breakpoint(min) {
+                        display: none;
+                    }
+                }
+
+                @keyframes spin {
+                    0% {
+                        transform: rotate(0deg);
+                    }
+                    100% {
+                        transform: rotate(360deg);
+                    }
+                }
+            }
+        }
+    }
+
+
+    &__button {
+        height: 39px;
+        padding: 0;
+        background: none;
+        border: none;
+        opacity: .7;
+        cursor: pointer;
+        transition: transform .2s ease;
+
+        .btn-left {
+            margin-left: -5px;
+        }
+
+        .btn-right {
+            margin-right: -5px;
+        }
+
+        &:disabled {
+            opacity: .2;
+            cursor: initial;
+
+            &:hover {
+                transform: none;
+            }
+        }
+
+        &.not-active {
+            opacity: .2;
+            cursor: initial;
+
+            &:hover {
+                transform: none;
+            }
+        }
+
+        &:hover {
+            transform: scale(1.1);
+        }
+    }
+
+
+}

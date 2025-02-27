@@ -1,0 +1,47 @@
+@use "../base/variables" as *;
+
+.header {
+    background: $color-white;
+    width: 100%;
+
+    &__content {
+        overflow: hidden;
+        padding: 0 60px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        position: relative;
+        z-index: 10;
+        transition: 0.3s ease all;
+
+        &__wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            min-width: calc(50% + 118px);
+
+            @include breakpoint(md) {
+                min-width: 0;
+            }
+
+        }
+
+        &__toggle {
+            display: none;
+
+            @include breakpoint(md) {
+                display: initial;
+            }
+
+        }
+
+        @include breakpoint(md) {
+            padding: 0 30px;
+        }
+
+        @include breakpoint(sm) {
+            padding: 0 14px;
+        }
+    }
+
+}

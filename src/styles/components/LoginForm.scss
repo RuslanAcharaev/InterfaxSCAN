@@ -1,0 +1,222 @@
+@use "../base/variables" as *;
+
+.form {
+    display: flex;
+    flex-direction: column;
+    width: 429px;
+    height: 523px;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.15);
+    position: relative;
+
+    @include breakpoint(lg) {
+        margin: 80px auto 0;
+    }
+
+    @include breakpoint(sm) {
+        margin: 120px auto 0;
+        padding: 25px 15px 20px;
+        width: 335px;
+        height: 504px;
+    }
+
+    &::before {
+        content: "";
+        position: absolute;
+        width: 75px;
+        height: 92px;
+        top: -55px;
+        left: -51px;
+        background: url("../../assets/images/auth/image-lock.svg") 0 0 / cover no-repeat;
+
+        @include breakpoint(xl) {
+            top: -60px;
+            left: -25px;
+        }
+
+        @include breakpoint(sm) {
+            top: -81px;
+            left: 81px;
+        }
+
+    }
+
+    .form-header {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+
+        button {
+            background: none;
+            border: none;
+            font-family: $Inter;
+            @include font(16, 400);
+
+            @include breakpoint(sm) {
+                font-size: 14px;
+            }
+        }
+
+        .login-btn {
+            color: $color-green;
+            padding: 4px 50px;
+            border-bottom: 2px solid $color-green;
+            cursor: pointer;
+
+            @include breakpoint(xl) {
+                padding: 4px 47px;
+            }
+
+            @include breakpoint(sm) {
+                padding: 4px 44px;
+            }
+        }
+
+        .signup-btn {
+            color: $color-light-gray;
+            padding: 4px 20px;
+            border-bottom: 2px solid $color-light-gray;
+            cursor: pointer;
+
+            @include breakpoint(xl) {
+                padding: 4px 18px;
+            }
+
+            @include breakpoint(sm) {
+                padding: 4px 16px;
+            }
+        }
+    }
+
+    .form-body {
+        margin: 40px 0 0 0;
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+
+        form {
+            width: 100%;
+        }
+
+        .form-group {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            margin: 0 0 20px 0;
+
+            label {
+                @include font(16, 400, $color-gray);
+                margin: 0 0 15px 0;
+
+                @include breakpoint(sm) {
+                    font-size: 14px;
+                }
+            }
+
+            .input-wrapper {
+                position: relative;
+
+                input {
+                    padding: 0 17px 0;
+                    font-family: $Inter;
+                    @include font(16, 400, $color-black);
+                    width: 100%;
+                    border: 1px solid $color-light-gray;
+                    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.05);
+                    border-radius: 5px;
+                    height: 43px;
+
+                    &.error {
+                        border-color: $color-red;
+                        @include font(16, 400, $color-red);
+                        box-shadow: 0 0 10px 0 rgba(255, 89, 89, 0.2);
+                    }
+
+                }
+
+                .error-container {
+                    position: absolute;
+                    left: 0;
+                    right: 0;
+                    height: 20px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                }
+
+                .error-message {
+                    position: absolute;
+                    top: 4px;
+                    @include font(14, 400, $color-red);
+                    padding: 0 4px;
+                    animation: fadeIn 0.2s ease-in-out;
+
+                    @include breakpoint(sm) {
+                        font-size: 12px;
+                    }
+                }
+
+            }
+
+        }
+
+        .submit-btn {
+            margin-top: 10px;
+            cursor: pointer;
+            width: 100%;
+            height: 59px;
+            border: none;
+            background-color: $color-blue;
+            border-radius: 5px;
+            font-family: $Inter;
+            @include font(22, 500, $color-white);
+
+            @include breakpoint(sm) {
+                font-size: 20px;
+            }
+
+            &:disabled {
+                cursor: initial;
+                opacity: 0.5;
+            }
+
+            &.loading {
+                cursor: wait;
+            }
+        }
+
+        .password-recovery {
+            margin: 15px 0 0 0;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            a {
+                @include font(14, 400, $color-blue);
+                text-decoration: underline;
+            }
+        }
+    }
+
+    .form-footer {
+        margin: 30px 0 0 0;
+
+        p {
+            @include font(16, 400, $color-gray);
+        }
+
+        .oauth-icons {
+            margin: 15px 0 0 0;
+            display: flex;
+            gap: 10px;
+
+            @include breakpoint(sm) {
+                gap: 8px;
+            }
+        }
+
+    }
+}
+

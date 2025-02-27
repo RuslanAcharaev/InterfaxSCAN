@@ -1,0 +1,149 @@
+@use "../base/variables" as *;
+
+.search {
+
+    &__content {
+        padding: 65px 60px 64px;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+
+        @include breakpoint(xxl) {
+            padding: 65px 60px 24px;
+        }
+
+        @include breakpoint(lg) {
+            flex-direction: column;
+            padding: 30px 60px 24px;
+        }
+
+        @include breakpoint(md) {
+            padding: 20px 30px 24px;
+        }
+
+        @include breakpoint(sm) {
+            padding: 20px 14px 24px;
+        }
+
+        &__title {
+            width: 60%;
+            font-family: $Ferry;
+            @include font(40, 900);
+            text-transform: uppercase;
+            position: relative;
+
+            @include breakpoint(xl) {
+                width: 68%;
+                font-size: 38px;
+            }
+
+            @include breakpoint(lg) {
+                width: 85%;
+                font-size: 36px;
+            }
+
+            @include breakpoint(md) {
+                width: 100%;
+                font-size: 30px;
+            }
+
+            @include breakpoint(min) {
+                font-size: 28px;
+            }
+
+            &::after {
+                content: "";
+                position: absolute;
+                bottom: -65%;
+                right: -22%;
+                background-image: url("../../assets/images/search/page-icon.svg");
+                background-size: contain;
+                width: 91px;
+                height: 112px;
+
+                @include breakpoint(lg) {
+                    right: -17%;
+                }
+
+                @include breakpoint(md) {
+                    width: 72px;
+                    height: 89px;
+                    right: 0;
+                    bottom: -100%;
+                }
+
+                @include breakpoint(sm) {
+                    width: 58px;
+                    height: 71px;
+                    bottom: -84px;
+                    right: 20px;
+                }
+
+                @include breakpoint(min) {
+                    bottom: -28%;
+                }
+            }
+        }
+
+        &__description {
+            margin: 25px 0 47px 0;
+            @include font(20, 400);
+            position: relative;
+
+            @include breakpoint(md) {
+                margin: 22px 0 32px 0;
+                font-size: 18px;
+            }
+
+            @include breakpoint(sm) {
+                width: 297px;
+                margin: 19px 0 21px 0;
+            }
+
+            &::after {
+                content: "";
+                position: absolute;
+                top: -100%;
+                right: 5%;
+                background-image: url("../../assets/images/search/documents-icon.svg");
+                width: 140px;
+                height: 68px;
+
+                @include breakpoint(xl) {
+                    right: 0;
+                }
+
+                @include breakpoint(lg) {
+                    display: none;
+                }
+            }
+
+        }
+
+        &__search-wrapper {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            flex-wrap: wrap;
+
+            @include breakpoint(xxl) {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .search-image {
+                margin: 66px 0 0 0;
+
+                @include breakpoint(xxl) {
+                    margin: 24px 0 0 0;
+                }
+
+                @include breakpoint(sm) {
+                    height: 400px;
+                    width: 336px;
+                }
+            }
+        }
+
+    }
+}

@@ -1,0 +1,94 @@
+@use "../base/variables" as *;
+
+.auth_nav {
+
+    @include breakpoint(md) {
+        position: fixed;
+        z-index: 100;
+        top: 325px;
+        right: 0;
+        width: 100%;
+        height: 100vh;
+        display: none;
+        padding: 0;
+        flex-direction: column;
+        justify-content: start;
+        align-items: center;
+        text-align: center;
+        animation: none;
+
+        &-menu {
+            display: flex;
+            animation: slideIn 0.3s ease-in-out forwards;
+
+            &-closing {
+                display: flex;
+                animation: slideOut 0.3s ease-in-out forwards;
+            }
+        }
+    }
+
+    .btn {
+
+        &__sign-up {
+            font-family: $Inter;
+            @include font(14);
+            padding: 0 18px 0 0;
+            height: 26px;
+            border: none;
+            border-right: 2px solid $color-green;
+            outline: none;
+            background: none;
+            opacity: 0.4;
+            cursor: pointer;
+
+            @include breakpoint(md) {
+                padding: 0;
+                @include font(16, 400, $color-white);
+            }
+        }
+
+        &__log-in {
+            font-family: $Inter;
+            @include font(14);
+            margin: 0 0 0 20px;
+            width: 65px;
+            height: 26px;
+            border: none;
+            border-radius: 5px;
+            outline: none;
+            background-color: $color-cyan;
+            cursor: pointer;
+
+            @include breakpoint(md) {
+                margin: 20px 0 0 0;
+                @include font(20, 500);
+                width: 295px;
+                height: 52px;
+            }
+
+            &:hover {
+                filter: brightness(.9);
+            }
+        }
+    }
+
+    @keyframes slideIn {
+        from {
+            transform: translateX(100%);
+        }
+        to {
+            transform: translateX(0);
+        }
+    }
+
+    @keyframes slideOut {
+        from {
+            transform: translateX(0);
+        }
+        to {
+            transform: translateX(100%);
+        }
+    }
+
+}

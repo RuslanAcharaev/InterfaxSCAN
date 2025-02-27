@@ -1,0 +1,91 @@
+@use "../base/variables" as *;
+
+.slider-container {
+    margin: 0 auto;
+    padding: 70px 0 0 0;
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    @include breakpoint(min) {
+        padding: 32px 24px 0;
+    }
+
+    .cards-container {
+        display: flex;
+        gap: min(30px, 2%);
+        align-items: center;
+        justify-content: center;
+
+        .card {
+            width: 100%;
+            max-width: 480px;
+            min-width: min(400px, 30%);
+            display: flex;
+            flex-direction: column;
+            padding: 22px 20px 0;
+            height: 225px;
+            text-align: left;
+            border-radius: 10px;
+            background: $color-white;
+            box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.2);
+
+            @include breakpoint(min) {
+                height: 188px;
+                padding: 17px 16px 0 11px;
+            }
+
+            &__text {
+                @include font(18, 400);
+                margin: 12px 0 0 0;
+
+                @include breakpoint(min) {
+                    font-size: 16px;
+                }
+            }
+        }
+    }
+
+    button {
+        height: 39px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 0;
+        opacity: .7;
+        transition: transform .2s ease;
+
+        &:hover {
+            transform: scale(1.1);
+        }
+
+        &:disabled {
+            cursor: initial;
+            opacity: .2;
+
+            &:hover {
+                transform: none;
+            }
+        }
+    }
+
+    .btn__right {
+
+        @include breakpoint(min) {
+            position: absolute;
+            top: 50%;
+            right: -14px;
+        }
+    }
+
+    .btn__left {
+        @include breakpoint(min) {
+            position: absolute;
+            top: 50%;
+            left: -14px;
+        }
+    }
+}
+

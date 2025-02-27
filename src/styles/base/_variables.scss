@@ -1,0 +1,69 @@
+@use "typography";
+
+// fonts
+$Inter: 'Inter', sans-serif;
+$Ferry: 'Ferry', sans-serif;
+
+
+// colors
+$color-white: #FFFFFF;
+$color-black: #000000;
+$color-green: #029491;
+$color-yellow: #FFB64F;
+$color-cyan: #7CE3E1;
+$color-blue: #5970FF;
+$color-light-blue: #3BA5E0;
+$color-gray: #949494;
+$color-light-gray: #C7C7C7;
+$color-light-gray2: #D9D9D9;
+$color-light-gray3: #D2D2D2;
+$color-red: #FF5959;
+$color-light-green: #8AC540;
+
+
+// breakpoints
+
+$media_xxl: 1400px;
+$media_xl: 1200px;
+$media_lg: 992px;
+$media_md: 768px;
+$media_sm: 576px;
+$media_min: 428px;
+
+
+@mixin breakpoint($point) {
+    @if ($point == "xxl") {
+        @media (max-width: $media_xxl) {
+            @content;
+        }
+    } @else if ($point == "xl") {
+        @media (max-width: $media_xl) {
+            @content
+        }
+    } @else if ($point == "lg") {
+        @media (max-width: $media_lg) {
+            @content
+        }
+    } @else if ($point == "md") {
+        @media (max-width: $media_md) {
+            @content
+        }
+    } @else if ($point == "sm") {
+        @media (max-width: $media_sm) {
+            @content
+        }
+    } @else if ($point == "min") {
+        @media (max-width: $media_min) {
+            @content
+        }
+    }
+}
+
+@mixin font($size: 16, $weight: 400, $color: $color-black, $style: normal) {
+    font: {
+        size: $size * 1px;
+        weight: $weight;
+        style: $style;
+    }
+    color: $color;
+}

@@ -1,0 +1,259 @@
+@use "../base/variables" as *;
+
+.about {
+    margin: 0 0 199px 0;
+
+    @include breakpoint(lg) {
+        margin: 0 0 150px 0;
+    }
+
+    @include breakpoint(md) {
+        margin: 0 0 100px 0;
+    }
+
+    @include breakpoint(sm) {
+        margin: 0 0 400px 0;
+    }
+
+    &__content {
+        padding: 49px 60px 0;
+        position: relative;
+        z-index: auto;
+        display: flex;
+        flex-direction: column;
+
+        @include breakpoint(md) {
+            padding: 28px 30px 0;
+        }
+
+        @include breakpoint(sm) {
+            padding: 20px 14px 0;
+        }
+
+        &::after {
+            content: "";
+            position: absolute;
+            z-index: -10;
+            top: max(27px, calc(100% - 36vw));
+            right: min(60px, 5%);
+            width: min(629px, 47%);
+            height: min(593px, 122%);
+            background: url("../../assets/images/main/image-human1.webp") 0 0 / contain no-repeat;
+
+            @include breakpoint(lg) {
+                top: calc(100% - 42vw);
+                right: 3%;
+            }
+
+            @include breakpoint(md) {
+                top: calc(100% - 52vw);
+                right: 0;
+            }
+
+            @include breakpoint(sm) {
+                top: calc(100% + 20px);
+                right: 0;
+                background: url("../../assets/images/main/image-human1.webp") center / contain no-repeat;
+                width: 100%;
+                height: 100%;
+            }
+        }
+
+        &__title {
+            width: 743px;
+            font-family: $Ferry;
+            @include font(60, 900);
+            text-transform: uppercase;
+
+            @include breakpoint(lg) {
+                width: 600px;
+                font-size: 48px;
+            }
+
+            @include breakpoint(md) {
+                width: 500px;
+                font-size: 42px;
+            }
+
+            @include breakpoint(sm) {
+                width: 100%;
+                font-size: 32px;
+            }
+
+            @include breakpoint(min) {
+                font-size: 28px;
+            }
+        }
+
+        &__desc {
+            margin: 20px 0 70px 0;
+            width: 516px;
+            @include font(20, 400);
+
+            @include breakpoint(xl) {
+                width: 450px;
+
+            }
+
+            @include breakpoint(lg) {
+                width: 350px;
+            }
+
+            @include breakpoint(md) {
+                width: 280px;
+            }
+
+            @include breakpoint(sm) {
+                margin: 19px 0 32px;
+                font-size: 18px;
+            }
+        }
+
+        &__link {
+            margin: 0 auto 0 0;
+            padding: 16px 64px;
+            background: $color-blue;
+            border-radius: 5px;
+            @include font(22, 500, $color-white);
+            visibility: hidden;
+
+            @include breakpoint(sm) {
+                margin: 0 auto;
+            }
+
+            @include breakpoint(min) {
+                font-size: 20px;
+                margin: 0;
+                text-align: center;
+            }
+
+            &:hover {
+                filter: brightness(.8);
+            }
+
+            &.visible {
+                visibility: visible;
+            }
+        }
+    }
+}
+
+.features {
+    margin: 0 0 753px 0;
+
+    @include breakpoint(sm) {
+        margin-bottom: 128vw;
+    }
+
+    @include breakpoint(min) {
+        margin-bottom: 134vw;
+    }
+
+    &__content {
+        padding: 0 60px 0;
+        position: relative;
+        z-index: auto;
+        display: flex;
+        flex-direction: column;
+
+        @include breakpoint(md) {
+            padding: 0 30px 0;
+        }
+
+        @include breakpoint(sm) {
+            padding: 20px 14px 0;
+        }
+
+        &::after {
+            content: "";
+            position: absolute;
+            z-index: -10;
+            top: 100%;
+            margin-top: 70px;
+            left: 60px;
+            width: min(1307px, calc(100% - 60px));
+            height: 576px;
+            background: url("../../assets/images/main/image-human2.svg") top left / cover no-repeat;
+
+            @include breakpoint(md) {
+                left: 14px;
+                width: min(1307px, calc(100% - 14px));
+            }
+
+            @include breakpoint(sm) {
+                background: url("../../assets/images/main/image-human2.svg") top left / 230% no-repeat;
+            }
+
+            @include breakpoint(min) {
+                background: url("../../assets/images/main/image-human2.svg") top left / 250% no-repeat;
+            }
+
+        }
+
+        &__title {
+            font-family: $Ferry;
+            @include font(45, 900);
+            text-transform: uppercase;
+
+            @include breakpoint(lg) {
+                font-size: 40px;
+            }
+
+            @include breakpoint(md) {
+                font-size: 36px;
+            }
+
+            @include breakpoint(sm) {
+                font-size: 32px;
+            }
+
+            @include breakpoint(min) {
+                width: 274px;
+                font-size: 28px;
+            }
+        }
+    }
+}
+
+.tariffs {
+    margin: 0 0 76px 0;
+
+    @include breakpoint(md) {
+        margin: 0;
+    }
+
+    &__content {
+        padding: 0 60px 0;
+
+        @include breakpoint(md) {
+            padding: 0 30px 0;
+        }
+
+        @include breakpoint(sm) {
+            padding: 20px 14px 0;
+        }
+
+        &__title {
+            font-family: $Ferry;
+            @include font(45, 900);
+            text-transform: uppercase;
+
+            @include breakpoint(lg) {
+                font-size: 40px;
+            }
+
+            @include breakpoint(md) {
+                font-size: 36px;
+            }
+
+            @include breakpoint(sm) {
+                font-size: 32px;
+            }
+
+            @include breakpoint(min) {
+                width: 274px;
+                font-size: 28px;
+            }
+        }
+    }
+}

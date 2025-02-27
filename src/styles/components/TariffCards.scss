@@ -1,0 +1,210 @@
+@use "../base/variables" as *;
+
+$card-color: var(--card-color);
+$text-color: var(--text-color);
+
+
+.cards {
+    margin: 70px auto 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: min(36px, 5%);
+    flex-wrap: wrap;
+
+    @include breakpoint(lg) {
+        margin-top: 50px;
+    }
+
+    @include breakpoint(md) {
+        margin-top: 37px;
+    }
+
+    .card {
+        margin: 0 0 42px 0;
+        display: flex;
+        flex-direction: column;
+        min-width: min(415px, 32%);
+        height: 540px;
+        border-radius: 10px;
+        box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2);
+        position: relative;
+
+        @include breakpoint(min) {
+            height: 512px;
+        }
+
+        &.current {
+            &::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                border-radius: inherit;
+                border: 2px solid $card-color;
+                pointer-events: none;
+            }
+        }
+
+        &__top {
+            display: flex;
+            padding: 30px;
+            height: 132px;
+            background-color: $card-color;
+
+            border-radius: 8px 8px 0 0;
+            position: relative;
+
+            &__text {
+                .title {
+                    @include font(30, 500, $text-color);
+                    margin: 0 0 10px 0;
+
+                    @include breakpoint(min) {
+                        font-size: 20px;
+                        margin-bottom: 22px;
+                    }
+                }
+
+                .description {
+                    @include font(18, 400, $text-color)
+                }
+            }
+
+            &__icon {
+                position: absolute;
+                top: 11px;
+                right: 15px;
+
+                @include breakpoint(min) {
+                    top: 0;
+
+                    svg {
+                        width: 59px;
+                    }
+                }
+            }
+        }
+
+        &__bottom {
+            position: relative;
+            padding: 33px 30px 0 30px;
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+
+            @include breakpoint(min) {
+                padding: 20px 24px 0 24px;
+            }
+
+            &__badge {
+                position: absolute;
+                padding: 3px 14px;
+                top: 12px;
+                right: 10px;
+                @include font(14, 400, $color-white);
+                background-color: $color-light-blue;
+                border-radius: 10px;
+                visibility: hidden;
+
+                @include breakpoint(min) {
+                    display: none;
+                }
+
+                &.current {
+                    visibility: visible;
+                }
+            }
+
+            &__price {
+                display: flex;
+                align-items: center;
+                margin: 0 0 10px 0;
+
+                .new-price {
+                    @include font(30, 500);
+                    margin: 0 19px 0 0;
+                }
+
+                .old-price {
+                    @include font(25, 500);
+                    text-decoration: line-through;
+                    opacity: 0.5;
+                }
+
+            }
+
+            &__payment {
+                @include font(18, 400);
+                margin: 0 0 59px 0;
+
+                @include breakpoint(sm) {
+                    margin-bottom: 36px;
+                }
+            }
+
+            &__tariff-content {
+                margin: 0 0 54px 0;
+
+                @include breakpoint(min) {
+                    margin-bottom: 39px;
+                }
+
+                .title {
+                    @include font(20, 500);
+                    margin: 0 0 10px 0;
+
+                    @include breakpoint(min) {
+                        font-size: 18px;
+                    }
+                }
+
+                .benefits {
+                    @include font(18, 400);
+                    padding: 0;
+
+                    @include breakpoint(min) {
+                        font-size: 16px;
+                    }
+
+                    &__item {
+                        margin: 5px 0 0 0;
+
+                        &::before {
+                            content: "";
+                            display: inline-block;
+                            margin: 0 8px 0 0;
+                            vertical-align: top;
+                            width: 20px;
+                            height: 20px;
+                            background-image: url("../../assets/images/main/check-mark.svg");
+                        }
+                    }
+                }
+            }
+
+            &__link {
+                margin: 0 auto 0;
+                width: 100%;
+                text-align: center;
+                padding: 17px 0;
+                background: $color-blue;
+                border-radius: 5px;
+                @include font(20, 400, $color-white);
+                letter-spacing: .01em;
+
+                &.current {
+                    background: $color-light-gray3;
+                    color: $color-black;
+                }
+
+                &:hover {
+                    filter: brightness(.85);
+                }
+
+            }
+        }
+    }
+}

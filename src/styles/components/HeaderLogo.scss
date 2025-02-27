@@ -1,0 +1,29 @@
+@use "../base/variables" as *;
+
+.logo {
+    height: 93px;
+    position: relative;
+
+    .logo-color {
+        @include breakpoint(min) {
+            width: 111px;
+        }
+    }
+
+    .logo-alpha {
+        position: absolute;
+        z-index: 1000;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+
+        @include breakpoint(min) {
+            width: 111px;
+        }
+    }
+
+    &-menu {
+        .logo-alpha {
+            opacity: 1;
+        }
+    }
+}

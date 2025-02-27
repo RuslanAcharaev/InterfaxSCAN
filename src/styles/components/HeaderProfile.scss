@@ -1,0 +1,109 @@
+@use "../base/variables" as *;
+
+.profile_nav {
+    display: flex;
+    flex-direction: row;
+
+    @include breakpoint(md) {
+        position: fixed;
+        z-index: 100;
+        top: 325px;
+        right: 0;
+        width: 100%;
+        height: 100vh;
+        display: none;
+        padding: 0;
+        flex-direction: column-reverse;
+        justify-content: start;
+        align-items: center;
+        text-align: center;
+        animation: none;
+
+        &-menu {
+            display: flex;
+            animation: slideIn 0.3s ease-in-out forwards;
+
+            &-closing {
+                display: flex;
+                animation: slideOut 0.3s ease-in-out forwards;
+            }
+        }
+    }
+
+    .text-wrapper {
+        margin: 0 5px 0 0;
+        display: flex;
+        flex-direction: column;
+        align-items: end;
+
+        @include breakpoint(md) {
+            margin: 0;
+            align-items: center;
+        }
+
+        .user_name {
+            font-family: $Inter;
+            @include font(14, 400, $color-black);
+            opacity: .7;
+
+            @include breakpoint(md) {
+                @include font(18, 400, $color-white);
+                opacity: 1;
+            }
+        }
+
+        .logout-btn {
+            border: none;
+            background: none;
+            margin: 3px 0 0 0;
+            padding: 0;
+            font-family: $Inter;
+            @include font(10, 400, $color-black);
+            opacity: .4;
+            cursor: pointer;
+
+            @include breakpoint(md) {
+                @include font(14, 400, $color-white);
+                opacity: .5;
+            }
+        }
+    }
+
+    .icon-wrapper {
+        display: inline-flex;
+        margin: 0;
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        overflow: hidden;
+
+        @include breakpoint(md) {
+            width: 60px;
+            height: 60px;
+        }
+
+        img {
+            object-fit: cover;
+        }
+    }
+
+
+    @keyframes slideIn {
+        from {
+            transform: translateX(100%);
+        }
+        to {
+            transform: translateX(0);
+        }
+    }
+
+    @keyframes slideOut {
+        from {
+            transform: translateX(0);
+        }
+        to {
+            transform: translateX(100%);
+        }
+    }
+
+}
